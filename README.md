@@ -4,5 +4,5 @@ Simple script to format and download ChatGPT conversations to markdown files
 
 ## Usage
 
-- Copy contents of `exportMarkdown.min.js`
-- On ChatGPT window, paste into console 
+- Copy file contents of `exportMarkdown.min.js`
+- To save ChatGPT conversation, paste into the browser console
