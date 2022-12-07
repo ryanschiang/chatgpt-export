@@ -77,7 +77,7 @@
     if (firstChild.nodeType === Node.TEXT_NODE) {
       // Prefix User prompt label
       markdown += `_Prompt_: \n`;
-      markdown += `${firstChild.textContent}]\n`;
+      markdown += `${firstChild.textContent}\n`;
 
       // End of prompt paragraphs breaks
       markdown += "\n";
