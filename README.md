@@ -1,6 +1,6 @@
 # chatgpt-export
 
-Simple script to format and download ChatGPT conversations to markdown, JSON, and PNG.
+Format and download ChatGPT conversations to markdown, JSON, and PNG for sharing and exporting chat logs.
 
 ## Usage
 
