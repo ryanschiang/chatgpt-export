@@ -17,8 +17,6 @@
 
   // canvas config
   var canvasWidth = 1200;
-  var canvasHeight = 1600;
-  var canvasPadding = 0;
 
   // prepare image elements
   var imageContent = "";
@@ -29,7 +27,7 @@
   var responseStartDiv = `<div style="background: ${responseBg}; padding: 16px; ">`;
 
   function divWrapper(child) {
-    return `<div style="line-height: 1.5em; margin-bottom: 0.75em">${child}</div>`;
+    return `<div style="line-height: 1.5em; margin-bottom: 0.85em">${child}</div>`;
   }
 
   // extract chats
@@ -69,7 +67,7 @@
           // Get list items
           if (tag === "OL" || tag === "UL") {
             listItems = "";
-            childNode.childNodes.forEach((listItemNode, index) => {
+            childNode.childNodes.forEach((listItemNode) => {
               if (
                 listItemNode.nodeType === Node.ELEMENT_NODE &&
                 listItemNode.tagName === "LI"
@@ -174,7 +172,6 @@
 
   // create canvas
   var canvas = document.createElement("canvas");
-  var contentWidth = (canvasWidth - canvasPadding * 2) / 2;
 
   // create content
   var content = imageContent;
@@ -184,7 +181,7 @@
   sizingDiv.id = "sizing-div";
   sizingDiv.style.width = canvasWidth / 2 + "px";
   sizingDiv.innerHTML = content.trim();
-  document.body.append(sizingDiv);
+  document.body.appendChild(sizingDiv);
   var sizingDivHeight = sizingDiv.offsetHeight * 2;
 
   // remove sizing div
@@ -198,24 +195,47 @@
     .toISOString()
     .slice(0, 19)
     .replace("T", " ");
-  var divChild = `<div xmlns="http://www.w3.org/1999/xhtml" style="width: ${
-    canvasWidth / 2
-  }px; position: relative; font-family: sans-serif; font-smooth: none; font-size:14px">
-  <div style="background: ${footerBg}; font-size: 12px; font-family: monospace; padding-top:4px; padding-bottom:2px; text-align: center; color: rgba(255, 255, 255, 0.25)">
-  ${timestamp}
-  </div>
-  <div style="color: #fff; font-weight: 300; width: ${contentWidth}px; margin-right: auto; margin-left:auto; display: block;">
-  ${content}
-  </div>
-  <div style="background: ${footerBg}; font-size: 12px; font-family: monospace; padding-top:2px; padding-bottom:2px; text-align: center; color: rgba(255, 255, 255, 0.25)">
-  Generated with chatgpt-export
-  </div>
-</div>
-  `;
+
+  var xmlDiv = document.createElement("div");
+  xmlDiv.setAttribute("xmlns", "http://www.w3.org/1999/xhtml");
+  xmlDiv.style.width = canvasWidth / 2 + "px";
+  xmlDiv.style.fontFamily = "sans-serif";
+  xmlDiv.style.fontSize = "14px";
+
+  var headerDiv = document.createElement("div");
+  headerDiv.innerText = timestamp;
+  headerDiv.style.fontSize = "12px";
+  headerDiv.style.paddingTop = "4px";
+  headerDiv.style.paddingBottom = "2px";
+  headerDiv.style.fontFamily = "monospace";
+  headerDiv.style.textAlign = "center";
+  headerDiv.style.color = "rgba(255,255,255,0.25)";
+  headerDiv.style.background = footerBg;
+
+  var contentDiv = document.createElement("div");
+  contentDiv.style.color = "#fff";
+  contentDiv.style.fontWeight = 300;
+  contentDiv.style.marginRight = "auto";
+  contentDiv.style.marginLeft = "auto";
+  contentDiv.appendChild(sizingDiv);
+
+  var footerDiv = document.createElement("div");
+  footerDiv.innerText = "Generated with chatgpt-export";
+  footerDiv.style.fontSize = "12px";
+  footerDiv.style.paddingTop = "2px";
+  footerDiv.style.paddingBottom = "4px";
+  footerDiv.style.fontFamily = "monospace";
+  footerDiv.style.textAlign = "center";
+  footerDiv.style.color = "rgba(255,255,255,0.25)";
+  footerDiv.style.background = footerBg;
+
+  xmlDiv.appendChild(headerDiv);
+  xmlDiv.appendChild(contentDiv);
+  xmlDiv.appendChild(footerDiv);
 
   var data = `<svg id="svg" xmlns="http://www.w3.org/2000/svg" width="${canvasWidth}px" height="${sizingDivHeight}px">
   <foreignObject width="100%" height="100%">
-  ${divChild}
+  ${xmlDiv.outerHTML}
   </foreignObject>
   </svg>
   `;
@@ -223,8 +243,6 @@
   // canvas styles
   canvas.width = canvasWidth;
   canvas.height = sizingDivHeight;
-  canvas.style.width = canvasWidth / 2 + "px";
-  canvas.style.height = sizingDivHeight / 2 + "px";
 
   //get DPI
   let dpi = window.devicePixelRatio;
@@ -236,6 +254,7 @@
   // create image
   data = encodeURIComponent(data);
   var img = new Image();
+  img.src = "data:image/svg+xml," + data;
   img.onload = function () {
     ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
 
@@ -249,7 +268,6 @@
       };
 
       newImg.src = url;
-      newImg.style.border = "1px solid hsl(0,0%,50%)";
       document.body.appendChild(newImg);
 
       // download image
@@ -262,6 +280,4 @@
       newImg.remove();
     });
   };
-
-  img.src = "data:image/svg+xml," + data;
 })();
