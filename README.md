@@ -4,6 +4,8 @@ Simple script to format and download ChatGPT conversations to markdown, JSON, an
 
 ## Usage
 
+ Navigate to [chat.openai.com/chat](https://chat.openai.com/chat) and use the following steps to export chat logs:
+
 ### Markdown
 
 - Copy file contents of `exportMarkdown.min.js`
