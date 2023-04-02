@@ -131,6 +131,53 @@
               `<pre style="background: #000; padding:16px; white-space: pre-wrap;">${codeText}</pre>`
             );
           }
+
+          if (tag === "TABLE") {
+            // Get table sections
+            let tableContent = "";
+            childNode.childNodes.forEach((tableSectionNode) => {
+              if (
+                tableSectionNode.nodeType === Node.ELEMENT_NODE &&
+                (tableSectionNode.tagName === "THEAD" ||
+                  tableSectionNode.tagName === "TBODY")
+              ) {
+                // Get table rows
+                let tableRows = "";
+
+                tableSectionNode.childNodes.forEach(
+                  (tableRowNode) => {
+                    if (
+                      tableRowNode.nodeType === Node.ELEMENT_NODE &&
+                      tableRowNode.tagName === "TR"
+                    ) {
+                      // Get table cells
+                      let tableCells = "";
+
+                      tableRowNode.childNodes.forEach(
+                        (tableCellNode) => {
+                          if (
+                            tableCellNode.nodeType ===
+                              Node.ELEMENT_NODE &&
+                            (tableCellNode.tagName === "TD" ||
+                              tableCellNode.tagName === "TH")
+                          ) {
+                            tableCells += `<td>${tableCellNode.textContent}</td>`;
+                          }
+                        }
+                      );
+
+                      tableRows += `<tr>${tableCells}</tr>`;
+                    }
+                  }
+                );
+
+                const sectionTag = tableSectionNode.tagName.toLowerCase();
+                tableContent += `<${sectionTag}>${tableRows}</${sectionTag}>`;
+              }
+            });
+
+            imageContent += divWrapper(`<table>${tableContent}</table>`);
+          }
         }
       }
     }
