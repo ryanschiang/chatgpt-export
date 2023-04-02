@@ -1,3 +1,5 @@
+
+
 (function exportJSON() {
   var json = {
     meta: {
@@ -11,6 +13,8 @@
     },
   };
   var chats = [];
+
+  // Find all chat elements
   var elements = document.querySelectorAll("[class*='min-h-[20px]']");
 
   for (var i = 0; i < elements.length; i++) {
@@ -84,6 +88,63 @@
             message.push({
               type: "pre",
               data: text,
+            });
+          }
+
+          // Tables
+          if (tag === "TABLE") {
+            const tableSections = [];
+
+            // Get table sections
+            childNode.childNodes.forEach((tableSectionNode) => {
+              if (
+                tableSectionNode.nodeType === Node.ELEMENT_NODE &&
+                (tableSectionNode.tagName === "THEAD" ||
+                  tableSectionNode.tagName === "TBODY")
+              ) {
+                // Get table rows
+                const tableRows = [];
+                tableSectionNode.childNodes.forEach(
+                  (tableRowNode) => {
+                    if (
+                      tableRowNode.nodeType === Node.ELEMENT_NODE &&
+                      tableRowNode.tagName === "TR"
+                    ) {
+                      // Get table cells
+                      const tableCells = [];
+                      tableRowNode.childNodes.forEach(
+                        (tableCellNode) => {
+                          if (
+                            tableCellNode.nodeType ===
+                              Node.ELEMENT_NODE &&
+                            (tableCellNode.tagName === "TD" ||
+                              tableCellNode.tagName === "TH")
+                          ) {
+                            tableCells.push({
+                              type: tableCellNode.tagName.toLowerCase(),
+                              data: tableCellNode.textContent,
+                            });
+                          }
+                        }
+                      );
+                      tableRows.push({
+                        type: "tr",
+                        data: tableCells,
+                      });
+                    }
+                  }
+                );
+
+                tableSections.push({
+                  type: tableSectionNode.tagName.toLowerCase(),
+                  data: tableRows,
+                });
+              }
+            });
+
+            message.push({
+              type: "table",
+              data: tableSections,
             });
           }
         }
