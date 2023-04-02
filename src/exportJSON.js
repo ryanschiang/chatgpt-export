@@ -1,4 +1,4 @@
-
+const consoleSave = require('./consoleSave');
 
 (function exportJSON() {
   var json = {
@@ -85,9 +85,14 @@
 
           // Code blocks
           if (tag === "PRE") {
+            const codeBlockSplit = text.split("Copy code");
+            const codeBlockLang = codeBlockSplit[0].trim();
+            const codeBlockData = codeBlockSplit[1].trim();
+
             message.push({
               type: "pre",
-              data: text,
+              language: codeBlockLang,
+              data: codeBlockData,
             });
           }
 
@@ -167,43 +172,7 @@
   json.chats = chats;
 
   // Save to file
-  (function (console) {
-    console.save = function (data, filename) {
-      if (!filename) filename = "chatgpt.json";
-
-      if (typeof data === "object") {
-        data = JSON.stringify(data, undefined, 4);
-      }
-
-      var blob = new Blob([data], { type: "text/json" });
-      var a = document.createElement("a");
-
-      a.download = filename;
-      a.href = window.URL.createObjectURL(blob);
-      a.dataset.downloadurl = ["text/json", a.download, a.href].join(
-        ":"
-      );
-      var e = new MouseEvent("click", {
-        canBubble: true,
-        cancelable: false,
-        view: window,
-        detail: 0,
-        screenX: 0,
-        screenY: 0,
-        clientX: 0,
-        clientY: 0,
-        ctrlKey: false,
-        altKey: false,
-        shiftKey: false,
-        metaKey: false,
-        button: 0,
-        relatedTarget: null,
-      });
-
-      a.dispatchEvent(e);
-    };
-  })(console);
-
-  console.save(json, "chatgpt.json");
+  consoleSave(console, "json");
+  console.save(json);
   return json;
 })();
