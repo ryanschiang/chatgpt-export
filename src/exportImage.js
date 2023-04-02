@@ -1,3 +1,5 @@
+const getTimestamp = require("./util/getTimestamp");
+
 (function exportImage() {
   // download img
   function triggerDownload(imgURI) {
@@ -235,13 +237,7 @@
   sizingDiv.remove();
 
   // compile
-  var timestamp = new Date(
-    new Date(new Date(new Date()).toISOString()).getTime() -
-      new Date().getTimezoneOffset() * 60000
-  )
-    .toISOString()
-    .slice(0, 19)
-    .replace("T", " ");
+  var timestamp = getTimestamp();
 
   var xmlDiv = document.createElement("div");
   xmlDiv.setAttribute("xmlns", "http://www.w3.org/1999/xhtml");
