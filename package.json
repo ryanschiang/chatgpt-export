@@ -1,0 +1,26 @@
+{
+  "name": "chatgpt-export",
+  "version": "1.0.0",
+  "description": "Format and download ChatGPT conversations to markdown, JSON, and PNG for sharing and exporting chat logs.",
+  "scripts": {
+    "build": "npx webpack --mode production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ryanschiang/chatgpt-export.git"
+  },
+  "author": "https://github.com/ryanschiang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ryanschiang/chatgpt-export/issues"
+  },
+  "homepage": "https://github.com/ryanschiang/chatgpt-export#readme",
+  "devDependencies": {
+    "@babel/core": "^7.21.4",
+    "@babel/preset-env": "^7.21.4",
+    "babel-loader": "^9.1.2",
+    "terser-webpack-plugin": "^5.3.7",
+    "webpack": "^5.77.0",
+    "webpack-cli": "^5.0.1"
+  }
+}
