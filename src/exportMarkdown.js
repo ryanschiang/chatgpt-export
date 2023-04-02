@@ -1,3 +1,5 @@
+const consoleSave = require("./consoleSave");
+
 (function exportMarkdown() {
   var markdown = "";
   var elements = document.querySelectorAll("[class*='min-h-[20px]']");
@@ -76,7 +78,6 @@
             // Get table sections
             let tableMarkdown = "";
             childNode.childNodes.forEach((tableSectionNode) => {
-
               if (
                 tableSectionNode.nodeType === Node.ELEMENT_NODE &&
                 (tableSectionNode.tagName === "THEAD" ||
@@ -93,7 +94,7 @@
                     ) {
                       // Get table cells
                       let tableCells = "";
-                      
+
                       tableRowNode.childNodes.forEach(
                         (tableCellNode) => {
                           if (
@@ -103,7 +104,9 @@
                               tableCellNode.tagName === "TH")
                           ) {
                             tableCells += `| ${tableCellNode.textContent} `;
-                            if (tableSectionNode.tagName === "THEAD") {
+                            if (
+                              tableSectionNode.tagName === "THEAD"
+                            ) {
                               tableColCount++;
                             }
                           }
@@ -117,7 +120,9 @@
                 tableMarkdown += tableRows;
 
                 if (tableSectionNode.tagName === "THEAD") {
-                  const headerRowDivider = `| ${Array(tableColCount).fill('---').join(' | ')} |\n`;
+                  const headerRowDivider = `| ${Array(tableColCount)
+                    .fill("---")
+                    .join(" | ")} |\n`;
                   tableMarkdown += headerRowDivider;
                 }
               }
@@ -143,39 +148,7 @@
   }
 
   // Save to file
-  (function (console) {
-    console.save = function (data, filename) {
-      if (!filename) filename = "chatgpt.md";
-
-      var blob = new Blob([data], { type: "text/plain" });
-      var a = document.createElement("a");
-
-      a.download = filename;
-      a.href = window.URL.createObjectURL(blob);
-      a.dataset.downloadurl = ["text/plain", a.download, a.href].join(
-        ":"
-      );
-      var e = new MouseEvent("click", {
-        canBubble: true,
-        cancelable: false,
-        view: window,
-        detail: 0,
-        screenX: 0,
-        screenY: 0,
-        clientX: 0,
-        clientY: 0,
-        ctrlKey: false,
-        altKey: false,
-        shiftKey: false,
-        metaKey: false,
-        button: 0,
-        relatedTarget: null,
-      });
-
-      a.dispatchEvent(e);
-    };
-  })(console);
-
+  consoleSave(markdown, "chatgpt.md");
   console.save(markdown, "chatgpt.md");
   return markdown;
 })();
