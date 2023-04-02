@@ -64,7 +64,11 @@
 
           // Code blocks
           if (tag === "PRE") {
-            markdown += `\`\`\`\n${text}\`\`\`\n`;
+            const codeBlockSplit = text.split("Copy code");
+            const codeBlockLang = codeBlockSplit[0].trim();
+            const codeBlockData = codeBlockSplit[1].trim();
+
+            markdown += `\`\`\`${codeBlockLang}\n${codeBlockData}\n\`\`\`\n`;
           }
 
           // Tables
