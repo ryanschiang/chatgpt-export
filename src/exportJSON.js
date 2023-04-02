@@ -52,7 +52,7 @@
           // Get list items
           if (tag === "OL" || tag === "UL") {
 
-              listItems = []
+              const listItems = []
               childNode.childNodes.forEach((listItemNode, index) => {
                 if (
                   listItemNode.nodeType === Node.ELEMENT_NODE &&
