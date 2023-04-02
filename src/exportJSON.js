@@ -1,14 +1,15 @@
 (function exportJSON() {
-    var json = {
-        meta: {
-            timestamp: new Date(
-                new Date(new Date(new Date()).toISOString()).getTime() - new Date().getTimezoneOffset() * 60000
-              )
-                .toISOString()
-                .slice(0, 19)
-                .replace("T", " "),
-        }
-    }
+  var json = {
+    meta: {
+      timestamp: new Date(
+        new Date(new Date(new Date()).toISOString()).getTime() -
+          new Date().getTimezoneOffset() * 60000
+      )
+        .toISOString()
+        .slice(0, 19)
+        .replace("T", " "),
+    },
+  };
   var chats = [];
   var elements = document.querySelectorAll("[class*='min-h-[20px]']");
 
@@ -17,7 +18,7 @@
 
     // Prepare object
     var object = {
-        index: i,
+      index: i,
     };
     var message = [];
 
@@ -31,7 +32,7 @@
 
       // Prefix ChatGPT reponse label
       if (firstChild.className.includes("request-")) {
-        object.type = "response"
+        object.type = "response";
       }
 
       // Parse child elements
@@ -44,48 +45,46 @@
           // Paragraphs
           if (tag === "P") {
             message.push({
-                type: "p",
-                data: text,
+              type: "p",
+              data: text,
             });
           }
 
           // Get list items
           if (tag === "OL" || tag === "UL") {
+            const listItems = [];
+            childNode.childNodes.forEach((listItemNode, index) => {
+              if (
+                listItemNode.nodeType === Node.ELEMENT_NODE &&
+                listItemNode.tagName === "LI"
+              ) {
+                listItems.push({
+                  type: "li",
+                  data: listItemNode.textContent,
+                });
+              }
+            });
 
-              const listItems = []
-              childNode.childNodes.forEach((listItemNode, index) => {
-                if (
-                  listItemNode.nodeType === Node.ELEMENT_NODE &&
-                  listItemNode.tagName === "LI"
-                ) {
-                  listItems.push({
-                      type: "li",
-                      data: listItemNode.textContent
-                  })
-                }
+            if (tag === "OL") {
+              message.push({
+                type: "ol",
+                data: listItems,
               });
-
-              if (tag === "OL") {
-                message.push({
-                    type: "ol",
-                    data: listItems,
-                })
-              }
-              if (tag === "UL") {
-                message.push({
-                    type: "ul",
-                    data: listItems
-                })
-              }
+            }
+            if (tag === "UL") {
+              message.push({
+                type: "ul",
+                data: listItems,
+              });
+            }
           }
-
 
           // Code blocks
           if (tag === "PRE") {
             message.push({
-                type: "pre",
-                data: text,
-            })
+              type: "pre",
+              data: text,
+            });
           }
         }
       }
