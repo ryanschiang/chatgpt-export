@@ -1,15 +1,10 @@
-const consoleSave = require("./consoleSave");
+const consoleSave = require("./util/consoleSave");
+const getTimestamp = require("./util/getTimestamp");
 
 (function exportMarkdown() {
   var markdown = "";
   var elements = document.querySelectorAll("[class*='min-h-[20px]']");
-  var timestamp = new Date(
-    new Date(new Date(new Date()).toISOString()).getTime() -
-      new Date().getTimezoneOffset() * 60000
-  )
-    .toISOString()
-    .slice(0, 19)
-    .replace("T", " ");
+  var timestamp = getTimestamp();
   markdown += `\`${timestamp}\`\n\n`;
 
   for (var i = 0; i < elements.length; i++) {

@@ -1,15 +1,10 @@
-const consoleSave = require('./consoleSave');
+const consoleSave = require('./util/consoleSave');
+const getTimestamp = require('./util/getTimestamp');
 
 (function exportJSON() {
   var json = {
     meta: {
-      timestamp: new Date(
-        new Date(new Date(new Date()).toISOString()).getTime() -
-          new Date().getTimezoneOffset() * 60000
-      )
-        .toISOString()
-        .slice(0, 19)
-        .replace("T", " "),
+      timestamp: getTimestamp()
     },
   };
   var chats = [];
