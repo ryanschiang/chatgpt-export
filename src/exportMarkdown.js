@@ -143,7 +143,7 @@ const getTimestamp = require("./util/getTimestamp");
   }
 
   // Save to file
-  consoleSave(markdown, "chatgpt.md");
-  console.save(markdown, "chatgpt.md");
+  consoleSave(console, "md");
+  console.save(markdown);
   return markdown;
 })();
