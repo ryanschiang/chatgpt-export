@@ -1,6 +1,6 @@
 {
   "name": "chatgpt-export",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Format and download ChatGPT conversations to markdown, JSON, and PNG for sharing and exporting chat logs.",
   "scripts": {
     "build": "npx webpack --mode production"
