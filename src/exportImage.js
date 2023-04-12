@@ -9,8 +9,10 @@ const getTimestamp = require("./util/getTimestamp");
       cancelable: true,
     });
 
+    const title = document.getElementsByTagName("title")[0].innerText;
+    let filename = title ? title.trim().toLowerCase().replace(/^[^\w\d]+|[^\w\d]+$/g, '').replace(/[\s\W-]+/g, '-') : "chatgpt";
     var a = document.createElement("a");
-    a.setAttribute("download", "chatgpt.png");
+    a.setAttribute("download", filename + ".png");
     a.setAttribute("href", imgURI);
     a.setAttribute("target", "_blank");
 
