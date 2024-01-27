@@ -34,6 +34,21 @@ OR:
 1. Copy contents of `/dist/md.min.js`
 2. Paste into browser console
 
+
+
+
+### Markdown with Math Latex
+
+1. Open browser console
+2. Copy and paste this function:
+
+`fetch('https://raw.githubusercontent.com/ryanschiang/chatgpt-export/main/dist/md2.min.js').then(response => response.text()).then(text => eval(text))`
+
+OR:
+
+1. Copy contents of `/dist/md2.min.js`
+2. Paste into browser console
+
 ### Image (.PNG)
 
 1. Open browser console
