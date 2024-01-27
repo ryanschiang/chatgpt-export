@@ -15,7 +15,7 @@ Exports the active ChatGPT chat log directly from the browser console.
 1. Open browser console
 2. Copy and paste this function:
 
-`fetch('https://raw.githubusercontent.com/ryanschiang/chatgpt-export/main/dist/json.min.js').then(response => response.text()).then(text => eval(text))`
+`fetch('https://raw.githubusercontent.com/vrocky/chatgpt-export/main/dist/json.min.js').then(response => response.text()).then(text => eval(text))`
 
 OR:
 
@@ -27,11 +27,26 @@ OR:
 1. Open browser console
 2. Copy and paste this function:
 
-`fetch('https://raw.githubusercontent.com/ryanschiang/chatgpt-export/main/dist/md.min.js').then(response => response.text()).then(text => eval(text))`
+`fetch('https://raw.githubusercontent.com/vrocky/chatgpt-export/main/dist/md.min.js').then(response => response.text()).then(text => eval(text))`
 
 OR:
 
 1. Copy contents of `/dist/md.min.js`
+2. Paste into browser console
+
+
+
+
+### Markdown with Math Latex
+
+1. Open browser console
+2. Copy and paste this function:
+
+`fetch('https://raw.githubusercontent.com/vrocky/chatgpt-export/main/dist/md2.min.js').then(response => response.text()).then(text => eval(text))`
+
+OR:
+
+1. Copy contents of `/dist/md2.min.js`
 2. Paste into browser console
 
 ### Image (.PNG)
@@ -39,7 +54,7 @@ OR:
 1. Open browser console
 2. Copy and paste this function:
 
-`fetch('https://raw.githubusercontent.com/ryanschiang/chatgpt-export/main/dist/image.min.js').then(response => response.text()).then(text => eval(text))`
+`fetch('https://raw.githubusercontent.com/vrocky/chatgpt-export/main/dist/image.min.js').then(response => response.text()).then(text => eval(text))`
 
 OR:
 

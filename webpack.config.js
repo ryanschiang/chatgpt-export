@@ -5,6 +5,7 @@ module.exports = {
     "json": "./src/exportJSON.js",
     "md": "./src/exportMarkdown.js",
     "image": "./src/exportImage.js",
+    "md2": "./src/exportMarkdown_with_math_latex.js",
   },
   output: {
     filename: '[name].min.js',

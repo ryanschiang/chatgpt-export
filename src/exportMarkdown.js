@@ -30,6 +30,11 @@ const getTimestamp = require("./util/getTimestamp");
         if (childNode.nodeType === Node.ELEMENT_NODE) {
           var tag = childNode.tagName;
           var text = childNode.textContent;
+
+          console.log(`Tag: ${tag}`);
+          console.log(childNode);
+          console.log(`Text: ${text}`);
+
           // Paragraphs
           if (tag === "P") {
             markdown += `${text}\n`;
@@ -136,6 +141,8 @@ const getTimestamp = require("./util/getTimestamp");
       // Prefix User prompt label
       markdown += `_Prompt_: \n`;
       markdown += `${firstChild.textContent}\n`;
+
+      console.log(`Text: ${firstChild.textContent}`);
 
       // End of prompt paragraphs breaks
       markdown += "\n";
