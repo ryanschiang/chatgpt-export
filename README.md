@@ -12,7 +12,8 @@ Exports the active ChatGPT chat log directly from the browser console.
 
  1. Navigate to [chat.openai.com/chat](https://chat.openai.com/chat).
  2. Open the chat thread you'd like to export.
- 3. Follow the below steps depending on which output type you'd like.
+ 3. Open the browser console (how to open console: [Chrome](https://developer.chrome.com/docs/devtools/open), [Firefox](https://firefox-source-docs.mozilla.org/devtools-user/), [Safari](https://developer.apple.com/library/archive/documentation/NetworkingInternetWeb/Conceptual/Web_Inspector_Tutorial/EnableWebInspector/EnableWebInspector.html))
+ 4. Follow the below steps depending on which output type you'd like.
 
  > [!IMPORTANT]  
 > Always be careful when pasting code into the console. Only paste code from trusted sources, as it can be used to execute malicious code.
