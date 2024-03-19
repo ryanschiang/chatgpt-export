@@ -1,6 +1,6 @@
 # Export OpenAI ChatGPT Conversations (chatgpt-export)
 
-[![GitHub license](https://img.shields.io/github/license/ryanschiang/claude-export)](
+[![GitHub license](https://img.shields.io/github/license/ryanschiang/chatgpt-export)](
     ./LICENSE
 )
 [![Github Stars](https://img.shields.io/github/stars/ryanschiang/chatgpt-export?style=social)](
