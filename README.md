@@ -14,6 +14,10 @@ Exports the active ChatGPT chat log directly from the browser console.
  2. Open the chat thread you'd like to export.
  3. Follow the below steps depending on which output type you'd like.
 
+ > [!IMPORTANT]  
+> Always be careful when pasting code into the console. Only paste code from trusted sources, as it can be used to execute malicious code.
+> You can explore this repository and verify the code before pasting it into the console, or clone and build the code yourself.
+
 ### JSON
 
 1. Open browser console
