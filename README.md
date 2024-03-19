@@ -3,6 +3,9 @@
 [![GitHub license](https://img.shields.io/github/license/ryanschiang/claude-export)](
     ./LICENSE
 )
+[![Github Stars](https://img.shields.io/github/stars/ryanschiang/chatgpt-export?style=social)](
+    https://github.com/ryanschiang/chatgpt-export/stargazers
+)
 
 Format and download ChatGPT conversations to markdown, JSON, and PNG for sharing and exporting chat logs.
 
