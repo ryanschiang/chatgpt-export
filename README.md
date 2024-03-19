@@ -28,7 +28,7 @@ Exports the active ChatGPT chat log directly from the browser console.
 
 OR:
 
-1. Copy contents of `/dist/json.min.js`
+1. Copy contents of [`/dist/json.min.js`](./dist/json.min.js)
 2. Paste into browser console
 
 ### Markdown
@@ -40,7 +40,7 @@ OR:
 
 OR:
 
-1. Copy contents of `/dist/md.min.js`
+1. Copy contents of [`/dist/md.min.js`](./dist/md.min.js)
 2. Paste into browser console
 
 ### Image (.PNG)
@@ -52,7 +52,7 @@ OR:
 
 OR:
 
-1. Copy contents of `/dist/image.min.js`
+1. Copy contents of [`/dist/image.min.js`](./dist/image.min.js)
 2. Paste into browser console
 
 #### Example output:
