@@ -265,7 +265,7 @@ const getTimestamp = require("./util/getTimestamp");
   contentDiv.appendChild(sizingDiv);
 
   var footerDiv = document.createElement("div");
-  footerDiv.innerText = "Generated with chatgpt-export";
+  footerDiv.innerText = "Generated with ryanschiang/chatgpt-export";
   footerDiv.style.fontSize = "12px";
   footerDiv.style.paddingTop = "2px";
   footerDiv.style.paddingBottom = "4px";
