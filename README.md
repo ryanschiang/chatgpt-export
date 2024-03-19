@@ -1,4 +1,8 @@
-# chatgpt-export
+# Export OpenAI ChatGPT Conversations (chatgpt-export)
+
+[![GitHub license](https://img.shields.io/github/license/ryanschiang/claude-export)](
+    ./LICENSE
+)
 
 Format and download ChatGPT conversations to markdown, JSON, and PNG for sharing and exporting chat logs.
 
@@ -58,3 +62,12 @@ It currently supports:
 - Lists
 - Code blocks
 - Tables
+
+## You May Also Like
+
+[`claude-export`](https://github.com/ryanschiang/claude-export) - Export Anthropic Claude conversations to markdown, JSON, and PNG for sharing and exporting chat logs.
+
+## Future Development
+
+- [ ] Nested code blocks (within lists)
+- [ ] Trim whitespace on exported images
