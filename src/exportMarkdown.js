@@ -1,11 +1,16 @@
 const consoleSave = require("./util/consoleSave");
 const getTimestamp = require("./util/getTimestamp");
+const getTitle = require("./util/getTitle");
+const kebab = require("./util/kebab");
 
 (function exportMarkdown() {
   var markdown = "";
   var elements = document.querySelectorAll("[class*='min-h-[20px]']");
   var timestamp = getTimestamp();
-  markdown += `\`${timestamp}\`\n\n`;
+
+  const title = getTitle();
+
+  markdown += `\# ${title}\n\`${timestamp}\`\n\n`;
 
   for (var i = 0; i < elements.length; i++) {
     var ele = elements[i];
@@ -19,8 +24,10 @@ const getTimestamp = require("./util/getTimestamp");
       var childNodes = firstChild.childNodes;
 
       // Prefix ChatGPT reponse label
-      if (firstChild.className.includes("request-")) {
+      if (firstChild.className.includes("markdown")) {
         markdown += `_ChatGPT_:\n`;
+      } else {
+        markdown += `_Prompt_: \n`;
       }
 
       // Parse child elements
@@ -127,17 +134,12 @@ const getTimestamp = require("./util/getTimestamp");
 
           // Paragraph break after each element
           markdown += "\n";
+        } else if (childNode.nodeType === Node.TEXT_NODE) {
+          markdown += `${childNode.textContent}\n`;
         }
       }
-    }
 
-    // Text child
-    if (firstChild.nodeType === Node.TEXT_NODE) {
-      // Prefix User prompt label
-      markdown += `_Prompt_: \n`;
-      markdown += `${firstChild.textContent}\n`;
-
-      // End of prompt paragraphs breaks
+      // Paragraph break after each element
       markdown += "\n";
     }
   }
