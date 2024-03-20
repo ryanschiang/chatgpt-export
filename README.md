@@ -29,10 +29,62 @@ You can export the active ChatGPT chat log directly from the browser console, en
 1. Copy contents of [`/dist/json.min.js`](./dist/json.min.js)
 2. Paste into browser console
 
+#### Example output (JSON export)
+
+```json
+{
+    "meta": {
+        "title": "Fetch API: Modern HTTP Requests",
+        "exportedAt": "2024-03-20 09:01:10"
+    },
+    "chats": [
+        {
+            "index": 0,
+            "type": "prompt",
+            "message": [
+                {
+                    "type": "p",
+                    "data": "How do I send a request with Javascript?"
+                }
+            ]
+        },
+        {
+            "index": 1,
+            "type": "response",
+            "message": [
+                {
+                    "type": "p",
+                    "data": "To send a request in JavaScript, you typically use either the XMLHttpRequest object or the more modern Fetch API. Given your expertise and the trend towards modern, more efficient, and promise-based solutions, I recommend using the Fetch API for most use cases. It's more powerful and flexible, aligning with contemporary JavaScript practices."
+                },
+                {
+                    "type": "p",
+                    "data": "Using Fetch API"
+                },
+            ]
+        }
+    ]
+}
+```
+
 ### Markdown
 
 1. Copy contents of [`/dist/md.min.js`](./dist/md.min.js)
 2. Paste into browser console
+
+#### Example output (Markdown export)
+
+````markdown
+# Fetch API: Modern HTTP Requests
+`2024-03-20 09:00:22`
+
+_Prompt_: 
+How do I send a request with Javascript?
+
+_ChatGPT_:
+To send a request in JavaScript, you typically use either the XMLHttpRequest object or the more modern Fetch API. Given your expertise and the trend towards modern, more efficient, and promise-based solutions, I recommend using the Fetch API for most use cases. It's more powerful and flexible, aligning with contemporary JavaScript practices.
+
+The Fetch API provides an easy and logical way to fetch resources asynchronously across the network. It's built on Promises, making it a better choice for handling responses and streamlining error handling.
+````
 
 ### Image (.PNG)
 
@@ -42,7 +94,7 @@ You can export the active ChatGPT chat log directly from the browser console, en
 > [!NOTE]  
 > Downloading as an image uses the `html2canvas` library to take a screenshot of the chat log. This may take a few seconds to process.
 
-#### Example output:
+#### Example output (Image export):
 ![alt text](./public/chatgpt-export-example.png "chatgpt-export Example Output")
 
 ## Limitations
@@ -54,6 +106,7 @@ It currently supports:
 - Lists
 - Code blocks
 - Tables
+- Headings
 
 ## Acknowledgements
 
@@ -66,4 +119,5 @@ It currently supports:
 ## Future Development
 
 - [ ] Nested code blocks (within lists)
-- [ ] Trim whitespace on exported images
+- [ ] Nested lists
+- [x] Trim whitespace on exported images
