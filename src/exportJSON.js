@@ -42,9 +42,12 @@ const getTitle = require("./util/getTitle");
                 object.type = "prompt";
             }
 
+            console.log("firstChild", firstChild);
+
             // Parse child elements
             for (var n = 0; n < childNodes.length; n++) {
                 const childNode = childNodes[n];
+                console.log("childNode", childNode);
 
                 if (childNode.nodeType === Node.ELEMENT_NODE) {
                     var tag = childNode.tagName;
@@ -165,12 +168,50 @@ const getTitle = require("./util/getTitle");
                                 data: tableSections,
                             });
                             break;
+                        
+                        case "H1":
+                          message.push({
+                            type: "h1",
+                            data: text,
+                          });
+                          break;
+                        case "H2":
+                          message.push({
+                            type: "h2",
+                            data: text,
+                          });
+                          break;
+                        case "H3":
+                          message.push({
+                            type: "h3",
+                            data: text,
+                          });
+                          break;
+                        case "H4":
+                          message.push({
+                            type: "h4",
+                            data: text,
+                          });
+                          break;
+                        case "H5":
+                          message.push({
+                            type: "h5",
+                            data: text,
+                          });
+                          break;
+                        case "H6":
+                          message.push({
+                            type: "h6",
+                            data: text,
+                          });
+                          break;
                         case "P":
                         default:
                             message.push({
                                 type: "p",
                                 data: text,
                             });
+                            break;
                     }
                 } else if (childNode.nodeType === Node.TEXT_NODE) {
                     var text = childNode.textContent;
