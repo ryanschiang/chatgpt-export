@@ -7,6 +7,8 @@
     https://github.com/ryanschiang/chatgpt-export/stargazers
 )
 
+![Working as of March 20, 2024](https://img.shields.io/badge/working%20as%20of-%20march%2020,%202024-forestgreen)]
+
 This browser script formats and downloads ChatGPT conversations to markdown, JSON, and PNG for sharing and exporting chat logs.
 
 You can export the active ChatGPT chat log directly from the browser console, entirely locally. No data is sent to any server.
