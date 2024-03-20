@@ -1,9 +1,15 @@
+const getTitle = require("./getTitle");
+const kebab = require("./kebab");
+
 module.exports = function (console, fileType) {
   console.save = function (data) {
     let mimeType = "text/plain";
 
-    const title = document.getElementsByTagName("title")[0].innerText;
-    let filename = title ? title.trim().toLowerCase().replace(/^[^\w\d]+|[^\w\d]+$/g, '').replace(/[\s\W-]+/g, '-') : "chatgpt";
+
+
+    const title = getTitle();
+    let filename = kebab(title);
+
     if (fileType.toLowerCase() === "json") {
       filename += ".json";
       mimeType = "text/json";
