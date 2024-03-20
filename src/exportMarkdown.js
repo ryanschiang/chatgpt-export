@@ -42,6 +42,13 @@ const getTitle = require("./util/getTitle");
                     if (tag === "P") {
                         markdown += `${text}\n`;
                     }
+                    
+                    // Headings
+                    if (["H1","H2","H3","H4","H5","H6"].includes(tag)) {
+                        const headingNum = parseInt(tag[1]);
+                        const heading = Array(headingNum).fill("#").join("");
+                        markdown += `${heading} ${text}\n`;
+                    }
 
                     // Get list items
                     if (tag === "OL") {
