@@ -75,13 +75,15 @@ You can export the active ChatGPT chat log directly from the browser console, en
 
 ````markdown
 # Fetch API: Modern HTTP Requests
-`2024-03-20 09:00:22`
+`2024-03-20 09:12:00`
 
 _Prompt_: 
 How do I send a request with Javascript?
 
 _ChatGPT_:
 To send a request in JavaScript, you typically use either the XMLHttpRequest object or the more modern Fetch API. Given your expertise and the trend towards modern, more efficient, and promise-based solutions, I recommend using the Fetch API for most use cases. It's more powerful and flexible, aligning with contemporary JavaScript practices.
+
+### Using Fetch API
 
 The Fetch API provides an easy and logical way to fetch resources asynchronously across the network. It's built on Promises, making it a better choice for handling responses and streamlining error handling.
 ````
