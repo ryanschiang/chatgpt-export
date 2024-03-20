@@ -7,9 +7,11 @@
     https://github.com/ryanschiang/chatgpt-export/stargazers
 )
 
-Format and download ChatGPT conversations to markdown, JSON, and PNG for sharing and exporting chat logs.
+This browser script formats and downloads ChatGPT conversations to markdown, JSON, and PNG for sharing and exporting chat logs.
 
-Exports the active ChatGPT chat log directly from the browser console.
+You can export the active ChatGPT chat log directly from the browser console, entirely locally. No data is sent to any server.
+
+**Supports the latest ChatGPT web UI as of March 20, 2024.**
 
 ## Usage
 
@@ -24,39 +26,21 @@ Exports the active ChatGPT chat log directly from the browser console.
 
 ### JSON
 
-1. Open browser console
-2. Copy and paste this function:
-
-`fetch('https://raw.githubusercontent.com/ryanschiang/chatgpt-export/main/dist/json.min.js').then(response => response.text()).then(text => eval(text))`
-
-OR:
-
 1. Copy contents of [`/dist/json.min.js`](./dist/json.min.js)
 2. Paste into browser console
 
 ### Markdown
-
-1. Open browser console
-2. Copy and paste this function:
-
-`fetch('https://raw.githubusercontent.com/ryanschiang/chatgpt-export/main/dist/md.min.js').then(response => response.text()).then(text => eval(text))`
-
-OR:
 
 1. Copy contents of [`/dist/md.min.js`](./dist/md.min.js)
 2. Paste into browser console
 
 ### Image (.PNG)
 
-1. Open browser console
-2. Copy and paste this function:
-
-`fetch('https://raw.githubusercontent.com/ryanschiang/chatgpt-export/main/dist/image.min.js').then(response => response.text()).then(text => eval(text))`
-
-OR:
-
 1. Copy contents of [`/dist/image.min.js`](./dist/image.min.js)
 2. Paste into browser console
+
+> [!NOTE]  
+> Downloading as an image uses the `html2canvas` library to take a screenshot of the chat log. This may take a few seconds to process.
 
 #### Example output:
 ![alt text](./public/chatgpt-export-example.png "chatgpt-export Example Output")
@@ -70,6 +54,10 @@ It currently supports:
 - Lists
 - Code blocks
 - Tables
+
+## Acknowledgements
+
+- [html2canvas](https://github.com/niklasvh/html2canvas) - Used to take a screenshot of the chat log and export as a PNG.
 
 ## You May Also Like
 
