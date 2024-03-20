@@ -7,7 +7,7 @@
     https://github.com/ryanschiang/chatgpt-export/stargazers
 )
 
-![Working as of March 20, 2024](https://img.shields.io/badge/working%20as%20of-%20march%2020,%202024-forestgreen)]
+![Working as of March 20, 2024](https://img.shields.io/badge/working%20as%20of-%20march%2020,%202024-blue)
 
 This browser script formats and downloads ChatGPT conversations to markdown, JSON, and PNG for sharing and exporting chat logs.
 
