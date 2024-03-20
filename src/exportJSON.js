@@ -3,7 +3,6 @@ const getTimestamp = require("./util/getTimestamp");
 const getTitle = require("./util/getTitle");
 
 (function exportJSON() {
-
     const title = getTitle();
 
     var json = {
