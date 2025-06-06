@@ -5,7 +5,7 @@ const getTitle = require("./util/getTitle");
 (function exportMarkdown() {
     var markdown = "";
     var elements = document.querySelectorAll(
-        "[class*='min-h-[20px]']"
+        "[class*='text-message']"
     );
     var timestamp = getTimestamp();
 

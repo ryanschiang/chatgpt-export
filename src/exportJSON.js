@@ -15,7 +15,7 @@ const getTitle = require("./util/getTitle");
 
     // Find all chat elements
     var elements = document.querySelectorAll(
-        "[class*='min-h-[20px]']"
+        "[class*='text-message']"
     );
 
     for (var i = 0; i < elements.length; i++) {
@@ -41,8 +41,6 @@ const getTitle = require("./util/getTitle");
             } else {
                 object.type = "prompt";
             }
-
-            console.log("firstChild", firstChild);
 
             // Parse child elements
             for (var n = 0; n < childNodes.length; n++) {
