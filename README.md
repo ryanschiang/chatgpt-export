@@ -7,15 +7,15 @@
     https://github.com/ryanschiang/chatgpt-export/stargazers
 )
 
-![Working as of March 20, 2024](https://img.shields.io/badge/working%20as%20of-%20march%2020,%202024-blue)
+![Working as of June 6, 2025](https://img.shields.io/badge/working%20as%20of-%20june%206,%202025-blue)
 
 This browser script formats and downloads ChatGPT conversations to markdown, JSON, and PNG for sharing and exporting chat logs.
 
 You can export the active ChatGPT chat log directly from the browser console, entirely locally. No data is sent to any server.
 
-**Supports the latest ChatGPT web UI as of March 20, 2024.**
+**Supports the latest ChatGPT web UI as of June 6, 2025.**
 
-## Usage
+## How to Use
 
  1. Navigate to [chat.openai.com/chat](https://chat.openai.com/chat).
  2. Open the chat thread you'd like to export.
