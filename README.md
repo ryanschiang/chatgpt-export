@@ -13,7 +13,10 @@ This browser script formats and downloads ChatGPT conversations to markdown, JSO
 
 You can export the active ChatGPT chat log directly from the browser console, entirely locally. No data is sent to any server.
 
-**Supports the latest ChatGPT web UI as of June 6, 2025.**
+This can be useful for saving temporary chats, saving a conversation for offline reference, or exporting chats to structured data.
+
+> [!NOTE]
+> Supports the latest ChatGPT web UI as of June 6, 2025.
 
 ## How to Use
 
